@@ -1,0 +1,9 @@
+/**
+ * *********************************************************************************************************************
+ * Gradle settings loaded during the build initialisation phase.
+ * *********************************************************************************************************************
+ */
+// Explicitly configure project name rather than relying on Gradle's default (name of project dir) to ensure consistent
+// artifact and distribution file names. This is configured in settings.gradle as gradle only allows it to be set
+// during build the init, before it subsequently makes it read-only.
+rootProject.name = 'java21-to-25-upgrade'

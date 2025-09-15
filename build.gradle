@@ -1,0 +1,67 @@
+/*
+ *  Copyright 2014-present the original author or authors.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+// *********************************************************************************************************************
+// Enable plugins
+// *********************************************************************************************************************
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'java'
+
+// *********************************************************************************************************************
+// Project Properties
+// *********************************************************************************************************************
+// Standard project properties. These are used as default values by some assembly and release task, e.g. jar
+// See gradle.properties and settings.gradle, e.g.
+//project.name - Property defined in settings.gradle, overriding the default used by Gradle which is based on proj dir
+//project.version - Property defined in gradle.properties
+
+// Extra user-defined project properties
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // Compile-time dependencies
+
+  // Test dependencies
+  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+  testImplementation("org.assertj:assertj-core:${assertjVersion}")
+  testImplementation("org.mockito:mockito-core:${mockitoVersion}")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
+
+// *********************************************************************************************************************
+// Task configuration
+// *********************************************************************************************************************
+
+idea {
+  project {
+    jdkName = '25'
+    languageLevel = '25'
+  }
+}
+
+test {
+  useJUnitPlatform() // Enable support for JUnit 5+
+
+  testLogging {
+    showStandardStreams = true // Log any output that the tests write to stdout or stderr
+    events "passed", "skipped", "failed" // Log the execution of each test and its result
+  }
+}
+
