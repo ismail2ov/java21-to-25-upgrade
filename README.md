@@ -52,13 +52,25 @@ All examples are **safe for production environments**.
 ### Using Gradle
 
 The wrapper will ensure the correct Gradle version is used.
-To clean and run all tests:
 
+To clean and run all tests:
 ```bash
 ./gradlew clean test
 ```
 
-For more details of Gradle build support see build.gradle in the project’s root folder.
+**If you’re having issues with Gradle, try these commands to fix them:**
+
+1. Stop all running Gradle daemon processes:
+```bash
+./gradlew --stop
+```
+
+2. Clean build, refresh dependencies, and run tests (forces re-download of dependencies)
+```bash
+./gradlew clean test --refresh-dependencies
+```
+
+For more details of Gradle build support see build.gradle in the project's root folder.
 
 ### Using Maven
 
@@ -69,7 +81,7 @@ To clean and run all tests:
 ./mvnw clean test
 ```
 
-For more details of Maven build support see pom.xml in the project’s root folder.
+For more details of Maven build support see pom.xml in the project's root folder.
 
 
 ---
@@ -86,4 +98,3 @@ For more details of Maven build support see pom.xml in the project’s root fold
 * [Java 25 Launch Stream](https://www.youtube.com/live/duIceCXObrA?si=azsPW7Jv16IISZDV&t=390)
 
 ---
-
