@@ -23,7 +23,7 @@ class UnnamedLocalVariablesTest {
                 winners.add(winner);
                 prizes--;
             }
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException _) {
             // Do nothing
         }
         return winners;
