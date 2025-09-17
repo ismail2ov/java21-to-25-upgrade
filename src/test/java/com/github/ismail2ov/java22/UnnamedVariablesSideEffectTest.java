@@ -9,7 +9,7 @@ class UnnamedVariablesSideEffectTest {
 
     static int count(Iterable<Order> orders) {
         int total = 0;
-        for (Order unused : orders) {
+        for (var _ : orders) {
             total++;
         }
         return total;
