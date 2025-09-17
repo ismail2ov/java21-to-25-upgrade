@@ -4,10 +4,10 @@ class BoxHandler {
 
     void handleBox(Box box) {
         switch (box) {
-            case Box(RedBall ball)   -> processBox(box);
-            case Box(BlueBall ball)  -> processBox(box);
-            case Box(GreenBall ball) -> stopProcessing();
-            case Box(var other)      -> pickAnotherBox();
+            case Box(RedBall _)   -> processBox(box);
+            case Box(BlueBall _)  -> processBox(box);
+            case Box(GreenBall _) -> stopProcessing();
+            case Box(var _)       -> pickAnotherBox();
         }
     }
 
