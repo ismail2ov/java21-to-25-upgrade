@@ -15,10 +15,10 @@ class UnnamedLocalVariablesTest {
         var winners = new ArrayList<Caller>();
         try {
             while (prizes > 0) {
-                Caller discarded1 = q.remove();
-                Caller discarded2 = q.remove();
-                Caller discarded3 = q.remove();
-                Caller discarded4 = q.remove();
+                Caller _ = q.remove();
+                Caller _ = q.remove();
+                Caller _ = q.remove();
+                Caller _ = q.remove();
                 Caller winner = q.remove();
                 winners.add(winner);
                 prizes--;
@@ -42,8 +42,9 @@ class UnnamedLocalVariablesTest {
 
         List<Caller> winners = everyFifthCaller(queue, 2);
 
-        assertThat(winners).hasSize(2);
-        assertThat(winners).containsExactlyInAnyOrder(new Caller("555-0005"), new Caller("555-0010"));
+        assertThat(winners)
+            .hasSize(2)
+            .containsExactlyInAnyOrder(new Caller("555-0005"), new Caller("555-0010"));
 
         List<String> remainingNumbers = queue.stream()
             .map(Caller::phoneNumber)
