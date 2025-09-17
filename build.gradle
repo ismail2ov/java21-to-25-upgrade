@@ -14,22 +14,11 @@
  *  limitations under the License.
  */
 
-// *********************************************************************************************************************
-// Enable plugins
-// *********************************************************************************************************************
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'java'
-
-// *********************************************************************************************************************
-// Project Properties
-// *********************************************************************************************************************
-// Standard project properties. These are used as default values by some assembly and release task, e.g. jar
-// See gradle.properties and settings.gradle, e.g.
-//project.name - Property defined in settings.gradle, overriding the default used by Gradle which is based on proj dir
-//project.version - Property defined in gradle.properties
-
-// Extra user-defined project properties
+plugins {
+  id 'java'
+  id 'idea'
+  id 'eclipse'
+}
 
 repositories {
   mavenCentral()
@@ -39,11 +28,17 @@ dependencies {
   // Compile-time dependencies
 
   // Test dependencies
+
+  // JUnit 5 (API + Engine)
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
   testImplementation("org.junit.platform:junit-platform-launcher:${junitPlatformLauncher}")
-  testImplementation("org.assertj:assertj-core:${assertjVersion}")
-  testImplementation("org.mockito:mockito-core:${mockitoVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+
+  // AssertJ for fluent assertions
+  testImplementation("org.assertj:assertj-core:${assertjVersion}")
+
+  // Mockito for mocking
+  testImplementation("org.mockito:mockito-core:${mockitoVersion}")
 }
 
 // *********************************************************************************************************************
