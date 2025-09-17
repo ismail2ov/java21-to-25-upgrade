@@ -14,7 +14,7 @@ class UnnamedLambdaExpressionVariablesTest {
             .collect(
                 Collectors.toMap(
                     UniqueRectangle::id,
-                    r -> "NODATA"));
+                    _ -> "NODATA"));
     }
 
     record Point(double x, double y) { }
